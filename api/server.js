@@ -20,6 +20,22 @@ server.use('/auctioneer', auctionRouter);
 server.use('/bidder', bidRouter );
 server.use('/item', itemRouter)
 
+
+server.use((err, req, res, next) => {
+	console.log(err)
+	res.status(500).json({
+        message: "Something went wrong",
+	})
+})
+
+
+server.get('/', (req, res)=>{
+    res.json({
+        message: 'Silent Auction API!'
+    })
+})
+
+
 module.exports = server;
 
 
