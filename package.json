@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "https://docs.google.com/document/d/14-T_46hJsC_c7MYHBjQc5Zu_UY3ETKK_SwUvWP1Bodc/edit?usp=sharing",
   "main": "index.js",
+  "engines":{
+    "node": "12.16.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
