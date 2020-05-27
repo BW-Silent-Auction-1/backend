@@ -22,10 +22,11 @@ async function add(data){
 
 
 async function getBiddersBids(id){
-   return db('offers as o')
-   .join('bidders as b', 'b.id', 'o.bidders_id')
-   .select('o.item_id as Item Id', 'b.id as Bidder Id', 'i.item_name as Item Name', 'i.item_description as Item Description', 'o.ammount as Ammount Bid')
+   return db('bidders as b')
    .where('b.id', id)
+   .join('offers as o', 'o.bidder_id', 'b.id')
+   .join('items as i', 'i.id', 'o.item_id' )
+   .select('i.id as Item Id', 'b.id as Bidder Id', 'i.name as Item Name', 'i.description as Item Description', 'o.ammount as Ammount Bid')
 }
 
 
