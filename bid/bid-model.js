@@ -26,7 +26,7 @@ async function getBiddersBids(id){
    .where('b.id', id)
    .join('offers as o', 'o.bidder_id', 'b.id')
    .join('items as i', 'i.id', 'o.item_id' )
-   .select('i.id as Item Id', 'b.id as Bidder Id', 'i.name as Item Name', 'i.description as Item Description', 'o.ammount as Ammount Bid')
+   .select('i.id as itemId', 'b.id as bidderId', 'i.name as itemName', 'i.description as itemDescription', 'o.ammount as ammountBid')
 }
 
 

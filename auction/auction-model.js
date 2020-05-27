@@ -33,7 +33,7 @@ async function addItem(id, item){
 async function getAuctioneerItems(id){
    return db('items as i').
    join('auctioneers as a', 'a.id', 'i.auctioneer_id')
-   .select('i.id as Item Id', 'a.id as Auctioneer Id', 'a.name as Auctioneer', 'i.name as Item Name', 'i.description as Item Description', 'i.price as Initial Price')
+   .select('i.id as itemId', 'a.id as auctioneerId', 'a.name as auctioneerName', 'i.name as itemName', 'i.description as itemDescription', 'i.price as initialPrice')
    .where('a.id', id)
 }
 
