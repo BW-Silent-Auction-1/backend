@@ -45,11 +45,11 @@ async function findBy(filter) {
 
 
 	if (bidder){
-        return bidder
+        return  {...bidder, role: "bidder"}
         
 	}
 	else if (auctioneer) {
-        return auctioneer
+		return  {...auctioneer, role: "auctioneer"}
 	}
 }
 
