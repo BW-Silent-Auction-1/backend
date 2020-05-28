@@ -24,13 +24,13 @@ async function getById(id){
      if(!offer[0]){
         return await db.table('items as i')
         .where('i.id', id)
-        .select('i.id as Item Id', 'i.name as Item Name', 'i.auctioneer_id as Auctioneer', 'i.description as Item Description', 'i.price as Asking Price')
+        .select('i.id as itemId', 'i.name as itemName', 'i.auctioneer_id as auctioneerId', 'i.description as itemDescription', 'i.price as initialPrice')
        }
     else{
         return await db.table('items as i')
         .where('i.id', id)
         .join('offers as o', 'o.item_id', 'i.id')
-        .select('i.id as Item Id', 'i.name as Item Name', 'i.auctioneer_id as Auctioneer', 'i.description as Item Description', 'i.price as Asking Price', 'o.ammount as Best Offer')
+        .select('i.id as itemId', 'i.name as itemName', 'i.auctioneer_id as auctioneerId', 'i.description as itemDescription', 'i.price as initialPrice', 'o.ammount as bestOffer')
         .orderBy('o.ammount', 'desc').limit(1)
         }
     

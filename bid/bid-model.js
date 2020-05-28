@@ -11,21 +11,12 @@ async function getById(id){
 
 }
 
-async function add(data){
-    console.log("data", data)
-    return  db('bidders')
-    .insert({
-        name: data.name,
-        password: data.password,
-    })
-}
-
-
 async function getBiddersBids(id){
-   return db('offers as o')
-   .join('bidders as b', 'b.id', 'o.bidders_id')
-   .select('o.item_id as Item Id', 'b.name as Bidders', 'i.item_name as Item Name', 'i.item_description as Item Description', 'o.ammount as Ammount Bid')
-   .where('a.id', id)
+   return db('bidders as b')
+   .where('b.id', id)
+   .join('offers as o', 'o.bidder_id', 'b.id')
+   .join('items as i', 'i.id', 'o.item_id' )
+   .select('i.id as itemId', 'b.id as bidderId', 'i.name as itemName', 'i.description as itemDescription', 'o.ammount as ammountBid')
 }
 
 
@@ -33,6 +24,5 @@ async function getBiddersBids(id){
 module.exports = {
     getAll,
     getById,
-    add,
     getBiddersBids
 };
