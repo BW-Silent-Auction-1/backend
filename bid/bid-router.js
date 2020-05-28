@@ -22,15 +22,6 @@ router.get('/:id', async (req, res, next)=>{
     }
 })
 
-//creates new bidder user
-router.post("/", async (req, res, next) =>{
-    try{
-        res.json(await db.add(req.body))
-    }
-    catch(err){
-        next(err)
-    }
-})
 
 //gets all the bids from an specific bidder
 router.get("/:id/bids", async (req, res, next) =>{

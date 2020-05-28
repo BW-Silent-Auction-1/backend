@@ -11,14 +11,6 @@ async function getById(id){
 
 }
 
-async function add(data){
-    console.log("data", data)
-    return  db('auctioneers')
-    .insert({
-        name: data.name,
-        password: data.password,
-    })
-}
 
 async function addItem(id, item){
     return db('items').
@@ -42,7 +34,6 @@ async function getAuctioneerItems(id){
 module.exports = {
     getAll,
     getById,
-    add,
     addItem,
     getAuctioneerItems
 };

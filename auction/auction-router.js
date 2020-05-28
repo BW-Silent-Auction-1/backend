@@ -16,22 +16,13 @@ router.get("/", async (req, res, next) =>{
 //get a specific auctioneer
 router.get('/:id', async (req, res, next)=>{
     try{
+        console.log(req.params.id)
         res.json(await db.getById(req.params.id))
     } catch(err){
         next(err)
     }
 })
 
-//create a new auctioneer user
-router.post("/", async (req, res, next) =>{
-    console.log("im not consologing shit")
-    try{
-        res.json(await db.add(req.body))
-    }
-    catch(err){
-        next(err)
-    }
-})
 
 //creates a new item for an auctioneer
 router.post("/:id/items", async (req, res, next) =>{

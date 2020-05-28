@@ -11,16 +11,6 @@ async function getById(id){
 
 }
 
-async function add(data){
-    console.log("data", data)
-    return  db('bidders')
-    .insert({
-        name: data.name,
-        password: data.password,
-    })
-}
-
-
 async function getBiddersBids(id){
    return db('bidders as b')
    .where('b.id', id)
@@ -34,6 +24,5 @@ async function getBiddersBids(id){
 module.exports = {
     getAll,
     getById,
-    add,
     getBiddersBids
 };
