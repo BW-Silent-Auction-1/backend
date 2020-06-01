@@ -23,6 +23,7 @@ router.post('/register', async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
+   console.log('this is the request', req)
    const authError = {
       message: "Invalid Credentials"
    }

@@ -13,6 +13,8 @@ exports.up = async function(knex) {
         table.string("name").notNullable()
         table.string("description").notNullable()
         table.integer("price").notNullable()
+        table.string("image_url")
+        table.string("end_date")
         table.timestamp("recorded_on")
     })
 

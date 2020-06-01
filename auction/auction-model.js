@@ -18,7 +18,10 @@ async function addItem(id, item){
         auctioneer_id: id,
         name: item.name,
         description: item.description,
-        price: item.price
+        price: item.price,
+        image_url: item.image_url,
+        end_date: item.end_date
+
     })
 }
 
