@@ -23,6 +23,7 @@ router.post('/register', async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
+   console.log('this is the request', req)
    const authError = {
       message: "Invalid Credentials"
    }
@@ -46,10 +47,10 @@ router.post('/login', async (req, res, next) => {
           userRole: userData.role
       }
       
-      res.cookie("token", jwt.sign(tokenPayload, process.env.JWT_SECRET) )
+      const token = jwt.sign(tokenPayload, process.env.JWT_SECRET) 
       res.json({
           message: `Welcome ${userData.name}!`,
-        
+          token: token
       })
    }
    catch(err){

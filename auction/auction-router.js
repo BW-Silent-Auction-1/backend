@@ -26,6 +26,7 @@ router.get('/:id', async (req, res, next)=>{
 
 //creates a new item for an auctioneer
 router.post("/:id/items", async (req, res, next) =>{
+    console.log(req.body)
     const id = req.params.id
     try{
         res.json(await db.addItem(id, req.body))
